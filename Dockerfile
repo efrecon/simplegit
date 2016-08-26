@@ -14,8 +14,6 @@ RUN apk --update add openssl openssl-dev libssh2 libssh2-dev build-base linux-he
     make install && \
     cd ../../bin && \
     cp sgit git-init /usr/local/bin/ && \
-    cd /usr/local/bin && \
-    ln -sf sgit git && \
     apk del build-base linux-headers cmake git openssl-dev libssh2-dev && \
     rm -rf /tmp/src && \
     rm -rf /var/cache/apk/*
