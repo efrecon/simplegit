@@ -1,7 +1,7 @@
 FROM alpine
 MAINTAINER efrecon@gmail.com
 
-RUN apk --update add openssl-dev build-base linux-headers cmake git && \
+RUN apk --update add openssl openssl-dev libssh2 libssh2-dev build-base linux-headers cmake git && \
     mkdir -p /tmp/src && \
     cd /tmp/src && \
     git clone https://github.com/sba1/simplegit.git && \
@@ -16,7 +16,7 @@ RUN apk --update add openssl-dev build-base linux-headers cmake git && \
     cp sgit git-init /usr/local/bin/ && \
     cd /usr/local/bin && \
     ln -sf sgit git && \
-    apk del build-base linux-headers cmake git && \
+    apk del build-base linux-headers cmake git openssl-dev libssh2-dev && \
     rm -rf /tmp/src && \
     rm -rf /var/cache/apk/*
 
